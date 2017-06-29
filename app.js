@@ -30,14 +30,12 @@ app.get('/', function(req, res) {
 
 // Op De Kant command
 app.post('/opdekant', function(req, res) {
-    var url = "http://opdekant.nl";
-
     // Create PhantomJs scrape instance
     phantom.create().then(function (ph) {
         // Create page
         ph.createPage().then(function (page) {
             // Open url
-            page.open(url).then(function (status) {
+            page.open(config.opdekantUrl).then(function (status) {
                 // Evaluate DOM
                 // Get DOM elm by id
                 page.evaluate(function() {
