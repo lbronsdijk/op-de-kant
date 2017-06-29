@@ -44,8 +44,8 @@ app.post('/opdekant', function(req, res) {
                     return document.getElementById('generated').innerHTML;
                 }).then(function(html){
                     res.send({
-                        'message': striptags(html),
-                        'request_path': req.url
+                        'response_type': "in_channel",
+                        'text': striptags(html)
                     })
                 });
 
